@@ -1,0 +1,78 @@
+.jobItem{
+    background-color: #fdfdfd;
+    border: solid 1px black;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 300px;
+}
+
+.jobPost{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.buttons{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 0.8rem;
+}
+
+.buttons .button{
+    cursor:pointer;
+    width:25%;
+}
+
+.reqYOE{
+    display:flex;
+    justify-content: space-around;
+}
+
+.reqYOE{
+    margin: 0.5rem 0;
+
+}
+
+
+
+.jobDescription p{
+    padding: 0 0.5rem;
+}
+
+.jobDescription h3{
+    text-align: center;
+}
+
+.lists li{
+    list-style: none;
+}
+
+.lists{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+#delete{
+    background-color:red;
+    border:none;
+    outline:none;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    color:white;
+}
+
+#edit{
+    background-color: antiquewhite;
+    border:none;
+    outline:none;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    color:black;
+        cursor:pointer;
+        padding:0.75rem 0;
+
+}

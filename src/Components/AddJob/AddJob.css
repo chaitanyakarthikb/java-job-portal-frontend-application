@@ -1,0 +1,67 @@
+.addJob{
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+form{
+    background-color: aqua;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    border:1px solid black;
+    border-radius:5px;
+}
+
+.addJobLabel{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    margin: 0.4rem 0;
+}
+
+.addJobLabel input{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.techStackLabel{
+    width: 72%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.techStackLabel input{
+    width: 90%;
+}
+
+.button{
+    width:20%;
+    margin: 0.5rem auto;
+}
+
+
+.button button{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.generatedTechStacksField {
+    display:flex;
+    justify-content: space-around;
+}
+
+.uLlists{
+    list-style: none;
+}
