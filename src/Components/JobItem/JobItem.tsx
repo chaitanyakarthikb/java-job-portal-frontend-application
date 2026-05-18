@@ -1,30 +1,50 @@
 import { Link } from "react-router-dom"
 import "./JobItem.css"
-const JobItem = () => {
-    let id:number = 5;
+import type { JobItem } from "../Dashboard/Dashboard";
+import { deleteJobURLByID } from "../../Constants/constants";
+import axios from "axios";
+import { JobPostContext } from "../../Context/jobPostContext";
+import { useContext } from "react";
+const JobItem = ({job}:{job:JobItem}) => {
+
+    const context = useContext(JobPostContext);
+        const {setJobPosts} = context;
+    const handleDeleteJobPost = async () => {
+      try {
+        let jobURL = `${deleteJobURLByID}${job.jobId}`;
+        let apiResponse = await axios.delete(jobURL);
+        if (apiResponse.status === 200) {
+          setJobPosts((prev: JobItem[]) => {
+            return prev.filter((j: JobItem) => j.jobId !== job.jobId);
+          });
+        }
+      } catch (error) {
+        console.error("Error deleting job:", error);
+      }
+    };
     return (
         <div className="jobItem">
             <div className="jobPost">
-                <h1>Job Post Title</h1>
-                <span>ID</span>
+                <h1>{job.jobPost}</h1>
+                <span>ID: {job.jobId}</span>
             </div>
 
             <div className="jobDescription">
-                <p>lorem ipsum dadsjf askldj klajdfja lksjdfjkl jalksdjfkj lkjalksjdflk j</p>
+                <p>{job.jobDescription}</p>
                 <h3>Technology Stack:</h3>
                 <ul className="lists">
-                    <li>One</li>
-                    <li>Two</li>
-                    <li>Three</li>
-                   
+                    {job.techStack.map((tech, index) => (
+                        <li key={index}>{tech}</li>
+                    ))}
+
                 </ul>
                 <div className="reqYOE">
                     <h3>Req YOE:-</h3>
-                    <h2>3</h2>
+                    <h2>{job.reqYOE}</h2>
                 </div>
                 <div className="buttons">
-                    <button className="button" id="delete">Delete</button>
-                    <Link className="button" to={`/editJob/${id}`}>
+                    <button onClick={()=>handleDeleteJobPost()} className="button" id="delete">Delete</button>
+                    <Link className="button" to={`/editJob/${job.jobId}`}>
                         <button id="edit">Edit</button>
                     </Link>
                 </div>

@@ -6,10 +6,12 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import Dashboard from './Components/Dashboard/Dashboard.tsx'
 import Header from './Components/Header/Header.tsx'
 import AddJob from './Components/AddJob/AddJob.tsx'
+import { JobPostProvider } from './Context/jobPostContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+    <JobPostProvider>
     <Header/>
     <Routes>
       <Route element={<Dashboard/>} path='/'/>
@@ -18,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
 
     </Routes>
       <App />
+      </JobPostProvider>
     </BrowserRouter>
     </StrictMode>,
 )
